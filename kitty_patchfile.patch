@@ -1,0 +1,203 @@
+--- .config/kitty/kitty.conf	2022-12-15 09:01:59
++++ kitty.conf	2022-12-20 16:33:57
+@@ -25,6 +25,11 @@
+ #:     bold_italic_font Operator Mono Medium Italic
+ 
+ # font_size 11.0
++bold_font         MesloLGSDZ Nerd Font Mono Bold
++bold_italic_font  MesloLGSDZ Nerd Font Mono Bold Italic
++italic_font       MesloLGSDZ Nerd Font Mono Italic
++font_family       MesloLGSDZ Nerd Font Mono Regular
++font_size 10.0
+ 
+ #: Font size (in pts)
+ 
+@@ -187,7 +192,7 @@
+ #: }}}
+ 
+ #: Cursor customization {{{
+-
++cursor #ffcc00
+ # cursor #cccccc
+ 
+ #: Default cursor color. If set to the special value none the cursor
+@@ -198,6 +203,7 @@
+ #: precedence. Also, the cursor colors are modified if the cell
+ #: background and foreground colors have very low contrast.
+ 
++cursor_text_color #000000
+ # cursor_text_color #111111
+ 
+ #: The color of text under the cursor. If you want it rendered with
+@@ -206,6 +212,7 @@
+ #: then this option is ignored.
+ 
+ # cursor_shape block
++cursor_shape block
+ 
+ #: The cursor shape can be one of block, beam, underline. Note that
+ #: when reloading the config this will be changed only if the cursor
+@@ -225,12 +232,14 @@
+ #: The thickness of the underline cursor (in pts).
+ 
+ # cursor_blink_interval -1
++cursor_blink_interval      0.33
+ 
+ #: The interval to blink the cursor (in seconds). Set to zero to
+ #: disable blinking. Negative values mean use system default. Note
+ #: that the minimum interval will be limited to repaint_delay.
+ 
+ # cursor_stop_blinking_after 15.0
++cursor_stop_blinking_after 0.0
+ 
+ #: Stop blinking cursor after the specified number of seconds of
+ #: keyboard inactivity. Set to zero to never stop blinking.
+@@ -240,7 +249,7 @@
+ #: Scrollback {{{
+ 
+ # scrollback_lines 2000
+-
++scrollback_lines 20000
+ #: Number of lines of history to keep in memory for scrolling back.
+ #: Memory is allocated on demand. Negative numbers are (effectively)
+ #: infinite scrollback. Note that using very large scrollback is not
+@@ -838,6 +847,7 @@
+ #: Tab bar {{{
+ 
+ # tab_bar_edge bottom
++tab_bar_edge top
+ 
+ #: The edge to show the tab bar on, top or bottom.
+ 
+@@ -846,6 +856,7 @@
+ #: The margin to the left and right of the tab bar (in pts).
+ 
+ # tab_bar_margin_height 0.0 0.0
++tab_bar_margin_height 2.0 4.0
+ 
+ #: The margin above and below the tab bar (in pts). The first number
+ #: is the margin between the edge of the OS Window and the tab bar.
+@@ -853,6 +864,7 @@
+ #: contents of the current tab.
+ 
+ # tab_bar_style fade
++tab_bar_style powerline
+ 
+ #: The tab bar style, can be one of:
+ 
+@@ -980,6 +992,8 @@
+ #: background color.
+ 
+ # tab_bar_margin_color none
++foreground #D1CDB9
++background #161818
+ 
+ #: Color for the tab bar margin area. Defaults to using the terminal
+ #: background color.
+@@ -994,6 +1008,7 @@
+ #: The foreground and background colors.
+ 
+ # background_opacity 1.0
++background_opacity         0.93
+ 
+ #: The opacity of the background. A number between zero and one, where
+ #: one is opaque and zero is fully transparent. This will only work if
+@@ -1017,6 +1032,7 @@
+ # background_image none
+ 
+ #: Path to a background image. Must be in PNG format.
++dynamic_background_opacity no
+ 
+ # background_image_layout tiled
+ 
+@@ -1036,7 +1052,7 @@
+ #: Changing this option by reloading the config is not supported.
+ 
+ # background_tint 0.0
+-
++background_tint 0.3
+ #: How much to tint the background image by the background color.
+ #: This option makes it easier to read the text. Tinting is done using
+ #: the current background color for each window. This option applies
+@@ -1044,12 +1060,14 @@
+ #: supported or background_image is set.
+ 
+ # dim_opacity 0.75
+-
++dim_opacity 0.6
+ #: How much to dim text that has the DIM/FAINT attribute set. One
+ #: means no dimming and zero means fully dimmed (i.e. invisible).
+ 
+ # selection_foreground #000000
+ # selection_background #fffacd
++selection_foreground #F9AB4A
++selection_background #593D85
+ 
+ #: The foreground and background colors for text selected with the
+ #: mouse. Setting both of these to none will cause a "reverse video"
+@@ -1067,41 +1085,57 @@
+ 
+ # color0 #000000
+ # color8 #767676
++color0 #000000
++color8 #414039
+ 
+ #: black
+ 
+ # color1 #cc0403
+ # color9 #f2201f
++color1 #F3643B
++color9 #F6956C
+ 
+ #: red
+ 
+ # color2  #19cb00
+ # color10 #23fd00
++color2  #5CBF3E
++color10 #A0F276
+ 
+ #: green
+ 
+ # color3  #cecb00
+ # color11 #fffd00
++color3  #CEC54B
++color11 #FFF87F
+ 
+ #: yellow
+ 
+ # color4  #0d73cc
+ # color12 #1a8fff
++color4  #004DBA
++color12 #5993ED
+ 
+ #: blue
+ 
+ # color5  #cb1ed1
+ # color13 #fd28ff
++color5  #BE3EBF
++color13 #F075F1
+ 
+ #: magenta
+ 
+ # color6  #0dcdcd
+ # color14 #14ffff
++color6  #3BC18C
++color14 #71F4C8
+ 
+ #: cyan
+ 
+ # color7  #dddddd
+ # color15 #ffffff
++color7  #F1F0E7
++color15 #ffffff
+ 
+ #: white
+ 
+@@ -1345,6 +1379,7 @@
+ #: link when clicked.
+ 
+ # shell_integration enabled
++shell_integration no-cursor
+ 
+ #: Enable shell integration on supported shells. This enables features
+ #: such as jumping to previous prompts, browsing the output of the
