@@ -33,4 +33,8 @@ end
 
 patch ~/.config/kitty/kitty.conf kitty_patchfile.patch
 
-Sources: https://sw.kovidgoyal.net/kitty/
+Sources:
+
+    - https://sw.kovidgoyal.net/kitty/
+
+    - https://fishshell.com
