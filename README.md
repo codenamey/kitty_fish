@@ -12,14 +12,13 @@ brew install fd
 
 brew install fisher
 
-###change terminal to fish
-****
-cshs -s /opt/homebrew/bin/fi*sh*
+change terminal to fish
+cshs -s /opt/homebrew/bin/fish
 
-###Run following under fish 
+##run following under
 set -U fish_user_paths /opt/homebrew/bin/ $fish_user_paths
 
-###needed to get it working
+##needed to get it working
 
 create file `.config/fish/functions/ssh.fish`
 
